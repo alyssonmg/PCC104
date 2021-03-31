@@ -1,28 +1,25 @@
-
+//SelectionSort
 #include <iostream>
+#include<vector>
 
-using namespace std;
-
-int main ()
+template <typename T>
+void printVector(std::vector<T>& v) //&referencia, não copia o vector
 {
-int n, i, j, aux, min;
-cout << "Digite a quantidade de elementos para ordenar: ";
-cout << "\n";
-cin >> n;
-double numeros[n];
+    for (auto i = v.begin(); i != v.end(); ++i)
+    {
+        std::cout << *i << ' ';
+    }
+    std::cout << std::endl;
+}
+int main()
+{
+    system("cls");
+    int n, min, i, j, aux;
+    std::vector<int> numeros = {12,34,9,78,56};
+    n = 5;
+    std::cout << "Elementos do vetor: ";
+    printVector(numeros);
 
-for (i=0; i<n; i++)
-    {
-    cout << "Digite o " << i + 1<< "o. numero: ";
-    cin >> numeros[i];
-    }
-cout << "Elementos ordenados conforme digitacao: ";
-for (i = 0; i <n; i++)
-    {
-    cout << numeros[i] << " ";
-    }
-cout << "\n";
-//Ordenando os elementos digitados
 for (i = 0;i < n-1; i++)
     {
     min = i;
@@ -37,9 +34,6 @@ for (i = 0;i < n-1; i++)
     numeros[min] = numeros [i];
     numeros[i] = aux;
     }
-cout << "Elementos ordenados de forma crescente: ";
-for (i = 0; i <n; i++)
-    {
-    cout << numeros[i] << " ";
-    }
+    std::cout << "Elementos ordenados: ";
+    printVector(numeros);
 }

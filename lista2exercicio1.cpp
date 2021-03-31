@@ -1,23 +1,25 @@
+//BubbleSort
 #include <iostream>
+#include<vector>
 
-using namespace std;
-
-int main ()
+template <typename T>
+void printVector(std::vector<T>& v) //&referencia, não copia o vector
 {
-const int n = 6;
-double numeros[n];
-int i, j, aux;
-cout << "Digite seis numeros aleatorios:\n";
-for (i=0; i<n; i++)
+    for (auto i = v.begin(); i != v.end(); ++i)
     {
-    cout << "Digite o " << i + 1<< "o. numero: ";
-    cin >> numeros[i];
+        std::cout << *i << ' ';
     }
-cout << "Elementos ordenados conforme digitacao: ";
-for (i = 0; i <n; i++){
-    cout << numeros[i] << " ";
+    std::cout << std::endl;
 }
-cout << "\n";
+int main()
+{
+    system("cls");
+    int n, min, i, j, aux;
+    std::vector<int> numeros = {123,34,90,78,56,111,2};
+    n = 7;
+    std::cout << "Elementos do vetor: ";
+    printVector(numeros);
+
 for (j = 1;j < n; j++){
     for (i = 0; i < n - 1; i++){
         if(numeros[i] > numeros[i + 1]){
@@ -27,8 +29,6 @@ for (j = 1;j < n; j++){
         }
     }
 }
-cout << "Elementos ordenados de forma crescente: ";
-for (i = 0; i <n; i++){
-    cout << numeros[i] << " ";
-}
+    std::cout << "Elementos ordenados: ";
+    printVector(numeros);
 }
